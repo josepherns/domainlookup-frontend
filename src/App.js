@@ -7,11 +7,11 @@ function App() {
     const [infoType, setInfoType] = useState('domain');
     const [response, setResponse] = useState(null);
     const [error, setError] = useState(null);
-
+    const apiUrl = process.env.REACT_APP_API_BASE_URL;
     const handleSubmit = async () => {
         setError(null);
         try {
-            const res = await fetch('http://localhost:3000/whois', {
+            const res = await fetch(`${apiUrl}/whois`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
